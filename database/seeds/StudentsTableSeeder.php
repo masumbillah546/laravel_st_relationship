@@ -19,18 +19,19 @@ class StudentsTableSeeder extends Seeder
         // 	'phone'=>'01738004246',
         // 	'address'=>'Dhaka'
         // ],
-        [
-        	'name'=>'Monir Hossain',
-        	'batch_id'=>'WDPF44',
-        	'phone'=>'01245454246',
-        	'address'=>'Narayanganj'
-        ],
         // [
-        // 	'name'=>'Moaref Billah',
+        // 	'name'=>'Monir Hossain',
         // 	'batch_id'=>'WDPF44',
-        // 	'phone'=>'0543225346',
-        // 	'address'=>'Feni'
+        // 	'phone'=>'01245454246',
+        // 	'address'=>'Narayanganj'
         // ],
+        [
+        	'name'=>'Moaref Billah',
+        	'batch_id'=>'WDPF44',
+        	'phone'=>'0543225346',
+        	'address'=>'Feni',
+            'district_id'=>'2',
+        ],
 
         );
     }

@@ -16,7 +16,7 @@ class ResultController extends Controller
     {
         echo "this is result index";
 
-         return view("result.index", ['results'=>Result::all()]);
+         return view("result.index", ['results'=>Result::with('student')->get()]);
     }
 
     /**

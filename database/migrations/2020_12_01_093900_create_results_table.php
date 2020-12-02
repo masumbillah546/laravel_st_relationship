@@ -16,7 +16,7 @@ class CreateResultsTable extends Migration
         Schema::create('results', function (Blueprint $table) {
             $table->bigIncrements('id');
             //$table->integer('st_id')->unsign();
-            $table->integer('st_id');
+            $table->integer('student_id');
             $table->string('exammonth',20);
             $table->tinyInteger('marks_mcq')->default(0);
             $table->tinyInteger('marks_evi')->default(0);

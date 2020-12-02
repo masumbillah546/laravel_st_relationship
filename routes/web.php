@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	$st ="<a href='/student'>Student list</a><br>";
+	$st .="<a href='/result'>Result list</a>";
+    return $st;
 });
 
 Route::resource('/student','StudentController');
