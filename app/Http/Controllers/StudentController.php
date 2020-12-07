@@ -14,6 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
+
+    // $students   = Student::all()
         //print_r(Student::all());
         return view("student.index", ['students'=>Student::all()]);
     }
@@ -36,7 +38,35 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $student = new Student;
+         $this->validate($request,[
+        'name' => 'required|min:5',
+        'batch' => 'required',
+        'phone' => 'required',
+        //'email' => 'required',
+        
+        ]);
+
+         $student->name = $request->name;
+         $student->batch_id = $request->batch;
+         $student->phone = $request->phone;
+         $student->address = $request->address;
+         $student->district_id = $request->district_id;
+         $student->photo = $request->photo->store('image','public');
+
+         //return $student;
+         $student->save();
+         // return redirect()->route('student.index');
+         // return view('student.index', ['students'=>Student::all()]);
+         return $this->index();
+
+
+
+         // if ($request->fails()) {
+            //return redirect('student/create')->withErrors($validatedData)->withInput();
+            //return redirect()->back()->withErrors($validatedData)->withInput();
+           // return back()->withErrors($validatedData)->withInput();
+       // }
     }
 
     /**
@@ -56,9 +86,10 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit( $student)
     {
-        //
+        $data = Student::find($student);
+        return view('student.edit', compact('data'));
     }
 
     /**
